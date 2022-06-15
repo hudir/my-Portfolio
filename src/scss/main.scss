@@ -4,6 +4,10 @@
 @import "./_color_guide";
 @import "./banner";
 
+* {
+    margin: 0;
+}
+
 body {
     width: 100%;
     height: auto;
