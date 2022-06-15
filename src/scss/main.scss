@@ -1,0 +1,371 @@
+// This is where you can import other stylesheets or write your scss code
+@import "./_mixin";
+@import "./_var.scss";
+@import "./_color_guide";
+@import "./banner";
+
+body {
+    width: 100%;
+    height: auto;
+}
+body > * {
+    overflow: hidden;
+}
+
+
+// navbar
+body nav {
+    width: 100%;
+    height: $nav-height; 
+    background: map-get($colors, t-dark);
+   
+    img {
+        height: 100%;
+    }
+}
+
+// about
+section.about {
+    padding-top: $nav-height;
+    width: 100%;
+    height: $section-height;
+    background: map-get($colors, about-bg );
+    
+    div {
+        height: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+
+        h1 {
+            font-size: 58px;
+            color: map-get($colors, t-dark);
+        }
+        img {
+            height: 70%;
+        }
+    }
+}
+
+// skills
+section.skills {
+    @include sectionSet;
+
+    > div {
+        height: 100%;
+        display: flex;
+    }
+    div div {
+        width: 50%;
+        height: 100%;
+
+        p {
+            color: map-get($colors, skill-t);
+        }
+    }
+    .skill-1 {
+        padding-top: 10px;
+
+        h4 {
+            align-self: flex-start;
+            color: map-get($colors, t-light);
+        }
+    }
+    .skill-2 {
+        @include center;
+        flex-direction: column;
+
+        h4{
+            color: map-get($colors, t-light);
+            margin-bottom: 30px;
+        }
+        ol {
+            list-style: none;
+
+            li {
+                font-size: 20px;
+                color: map-get($colors, t-light); 
+
+                i {
+                    margin-right: 10px;
+                }
+            }
+        }
+    }
+    
+}
+
+// exercise
+section.exercise1 {
+    padding-top: $nav-height;;
+}
+section.exercise1
+, section.exercise2 {
+    @include sectionSet;
+
+    h5
+    ,p {
+        color: map-get($colors, t-light);
+        span {
+            color: map-get($colors, skill-t);
+        }
+    }
+    .triangle_container {
+        height: 320px;
+        @include center;
+        
+        .triangle {
+            @include fade-in(6s);
+        }
+    }
+    .colorguide_container {
+        height: 320px;
+        width: 50%;
+        margin: 0px auto;
+        display: flex;
+       align-items: flex-start;
+       flex-direction: column;
+    }
+}
+
+section.exercise3 {
+    @include sectionSet;
+
+    h5 {
+        color: map-get($colors, t-light );
+    }
+    a {
+        color: map-get($colors, cyber-green);
+    }
+
+    div div {
+        border-radius: 7px;
+        padding-top: 7px;
+
+        &:hover {
+            background: map-get($colors, hover);
+        }
+    }
+}
+
+
+// contact
+section.contact {
+    height: $section-contact-height;
+    width: 100%;
+    background: map-get($colors, hover);
+    padding-top: 20px;
+
+    
+    div {
+        width: 100%;
+
+        h5 + div {
+            @include center;
+            
+            form {
+                width: 60%;
+                display: flex;
+                flex-flow: column nowrap;
+               
+                label {
+                    color: map-get($colors, skill-t);
+                    font-weight: 700;
+            
+                    &:hover {
+                        color: map-get($colors, cyber-green);
+                    } 
+                }  
+                input
+                , textarea{
+                    padding: .5rem;
+                    border: 1px solid rgba(128, 128, 128, 0.65);
+                    background-color: map-get($colors, about-bg);
+                    border-radius: 7px;
+                }       
+                .submit-btn {
+                    width: 10rem;
+                    background: none;
+                    color: map-get($colors, cyber-green);
+                    font-weight: 600;
+                    padding: .5rem;
+                    border: 1px solid rgba(128, 128, 128, 0.65);
+                    margin: 1rem auto 0;
+            
+                    &:hover {
+                        background: map-get($colors, cyber-green);
+                        color: map-get($colors, t-dark);
+            
+                    }
+                }
+                input:not([type="submit"]):focus
+                ,textarea:focus {
+                    outline: map-get($colors, cyber-green) solid 2px;
+                }
+                label {
+                    margin: 10px 0;
+                }
+            }
+        }
+       
+        h5 {
+            color: map-get($colors, t-light );
+        }   
+    } 
+}
+
+
+// footer
+footer {
+    width: 100%;
+    background: map-get($colors,t-dark);
+    color: map-get($colors, cyber-green );
+
+    a {
+        color: map-get($colors, cyber-green );
+
+        &:hover {
+            color: map-get($colors, cyber-green );
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//----------- Tablet version------------
+@media screen and (max-width: 800px) {
+body {
+    width: 100vw;
+    background-color: map-get($colors, skill-bg);
+}
+// about
+section.about {
+    
+    div {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+// skills
+section.skills {
+    height: 450px;
+
+    > div {
+        height: 100%;
+        display: block;
+       
+    }
+    div div {     
+        height: 40%;
+        width: 80%;
+        margin: 0 auto;
+    }
+    .skill-2 {
+        margin-top: 15px;
+        align-items: flex-start;
+        transform: translateY(30px);
+
+        h4{
+            margin: 15px 0;
+        }
+        ol {
+            li {
+                font-size: 25px; 
+            }
+        }
+    }
+    
+}
+
+section.exercise3 {
+    height: auto;
+
+    div div {
+        &:hover {
+            background: map-get($colors, skill-bg);
+        }
+        a:hover {
+            display: block;
+            background: map-get($colors, hover);
+            border-radius: 3px;
+        } 
+    }
+}
+
+// contact
+section.contact {
+    div {
+        h5 + div {            
+            form {
+                width: 90%;         
+            }
+        }
+    } 
+}
+
+// footer
+footer {
+    width: 100%;
+    background: map-get($colors,t-dark);
+    color: map-get($colors, cyber-green );
+
+    a {
+        color: map-get($colors, cyber-green );
+
+        &:hover {
+            color: map-get($colors, cyber-green );
+        }
+    }
+}
+}
+
+
+
+//----------- mobil version------------
+@media screen and (max-width: 400px) {
+   nav {
+       font-size: 10px;
+   }
+    // about
+    section.about {
+        h1 {
+            margin: 0 auto;
+            padding-left: 45px;
+        }
+    }
+    
+    // skills
+    section.skills {
+        height: 550px;
+    
+       
+        .skill-2 {           
+            transform: translateY(65px);
+        }
+        
+    }
+    
+    section.exercise3 {
+        overflow: hidden;
+    }
+    
+}
+    
